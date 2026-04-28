@@ -38,18 +38,42 @@
     .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:13px 18px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#111;font-weight:950;cursor:pointer;box-shadow:0 14px 35px rgba(255,122,0,.23);transition:.2s;text-align:center}.btn:hover{transform:translateY(-2px)}.btn.dark{background:rgba(255,255,255,.06);color:#fff;border:1px solid var(--line);box-shadow:none}.btn.small{padding:11px 13px;border-radius:12px;font-size:14px}
-    .hero{padding:74px 0 54px;border-bottom:1px solid var(--line);overflow:hidden;position:relative;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.78) 45%,rgba(255,122,0,.12) 100%),radial-gradient(circle at 73% 40%,rgba(255,122,0,.28),transparent 32%),#050505}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#050505 0%,rgba(5,5,5,.82) 46%,rgba(5,5,5,.28) 100%);z-index:0}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:6px;border:1px solid rgba(255,122,0,.36);background:rgba(255,122,0,.16);color:var(--orange);font-weight:950;margin-bottom:18px;text-transform:uppercase}
+    .hero{padding:74px 0 54px;border-bottom:1px solid var(--line);overflow:hidden;position:relative;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.78) 45%,rgba(255,122,0,.12) 100%),radial-gradient(circle at 73% 40%,rgba(255,122,0,.28),transparent 32%),#050505;--rider-shift:0px}
+
+/* фон с райдерами */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:-8%;
+  background:
+    url('images/rider1.jpg') left center / cover no-repeat,
+    url('images/rider2.jpg') right center / cover no-repeat;
+  opacity:0.12;
+  filter:grayscale(40%) contrast(110%);
+  z-index:0;
+  pointer-events:none;
+  transform:translateY(var(--rider-shift)) scale(1.08);
+  transition:transform .12s linear;
+}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#050505 0%,rgba(5,5,5,.82) 46%,rgba(5,5,5,.28) 100%);z-index:0}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:6px;border:1px solid rgba(255,122,0,.36);background:rgba(255,122,0,.16);color:var(--orange);font-weight:950;margin-bottom:18px;text-transform:uppercase}
     h1{font-size:clamp(40px,6.2vw,76px);line-height:.95;letter-spacing:-2px;margin:0 0 20px;text-transform:uppercase}h1 span,h2 span{color:var(--orange)}.lead{font-size:22px;line-height:1.45;max-width:700px;margin:0 0 26px;color:#f1f1f1}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}.trust{display:grid;grid-template-columns:repeat(4,max-content);gap:24px;align-items:center;margin-top:28px}.trust span{border:0;background:transparent;padding:0;color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;gap:10px}.trust span:before{content:"";width:44px;height:44px;border:2px solid var(--orange);border-radius:50%;display:inline-block;background:radial-gradient(circle,var(--orange) 0 20%,transparent 22%)}
-    .hero-stack{min-height:500px;position:relative;animation:heroCardIn .8s ease .15s both}.seat-fan{position:absolute;inset:10px 0 120px}.seat-fan img{position:absolute;width:105%;height:auto;object-fit:contain;background:transparent;border-radius:0;padding:0;box-shadow:none;filter:drop-shadow(0 30px 36px rgba(0,0,0,.62));animation:productFloat 3.5s ease-in-out infinite;transition:.2s}.seat-fan img:nth-child(1){left:12%;top:0;z-index:5;transform:rotate(0deg);animation-delay:0s}.seat-fan img:nth-child(2){left:-4%;top:62px;z-index:3;transform:rotate(-10deg) scale(.82);animation-delay:.35s}.seat-fan img:nth-child(3){right:-8%;top:62px;z-index:3;transform:rotate(10deg) scale(.82);animation-delay:.7s}.seat-fan img:nth-child(4){left:2%;top:148px;z-index:2;transform:rotate(-17deg) scale(.68);animation-delay:1.05s}.seat-fan img:nth-child(5){right:-2%;top:148px;z-index:2;transform:rotate(17deg) scale(.68);animation-delay:1.4s}.hero-stack-info h3{margin:6px 0 4px}.hero-stack .price{font-size:26px;margin-bottom:12px}.price{color:var(--orange);font-size:28px;font-weight:950;margin:8px 0}.pill{display:inline-flex;width:max-content;padding:6px 10px;border-radius:999px;background:rgba(255,122,0,.12);color:var(--orange2);font-weight:950;font-size:12px;margin-bottom:10px}
+    .hero-stack{min-height:500px;position:relative;animation:heroCardIn .8s ease .15s both}.seat-fan{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+/* неоновая подсветка снизу */
+.seat-fan::after{content:"";position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:60%;height:18%;background:radial-gradient(ellipse at center, rgba(255,122,0,.45) 0%, rgba(255,122,0,.25) 40%, rgba(255,122,0,0) 70%);filter:blur(22px);z-index:1;pointer-events:none}
+.seat-fan img{position:relative;z-index:2;width:120%;max-height:100%;object-fit:contain;background:transparent;border-radius:0;padding:0;box-shadow:none;filter:drop-shadow(0 40px 50px rgba(0,0,0,.7));animation:productFloat 3.5s ease-in-out infinite;transition:opacity .4s ease, transform .2s ease}
+.seat-fan img.fade-out{opacity:0}.seat-fan img:nth-child(1){left:12%;top:0;z-index:5;transform:rotate(0deg);animation-delay:0s}.seat-fan img:nth-child(2){left:-4%;top:62px;z-index:3;transform:rotate(-10deg) scale(.82);animation-delay:.35s}.seat-fan img:nth-child(3){right:-8%;top:62px;z-index:3;transform:rotate(10deg) scale(.82);animation-delay:.7s}.seat-fan img:nth-child(4){left:2%;top:148px;z-index:2;transform:rotate(-17deg) scale(.68);animation-delay:1.05s}.seat-fan img:nth-child(5){right:-2%;top:148px;z-index:2;transform:rotate(17deg) scale(.68);animation-delay:1.4s}.hero-stack-info h3{margin:6px 0 4px}.hero-stack .price{font-size:26px;margin-bottom:12px}.price{color:var(--orange);font-size:28px;font-weight:950;margin:8px 0}.pill{display:inline-flex;width:max-content;padding:6px 10px;border-radius:999px;background:rgba(255,122,0,.12);color:var(--orange2);font-weight:950;font-size:12px;margin-bottom:10px}
     section{padding:64px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:26px}h2{font-size:clamp(30px,4vw,46px);line-height:1;margin:0 0 8px;letter-spacing:-1.4px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}.filter{border:1px solid var(--line);background:rgba(255,255,255,.055);color:#fff;padding:10px 14px;border-radius:999px;font-weight:950;cursor:pointer}.filter.active,.filter:hover{background:var(--orange);border-color:var(--orange);color:#111}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:0;box-shadow:0 16px 50px rgba(0,0,0,.22);overflow:hidden}.product-card{cursor:pointer;transition:.2s;display:flex;flex-direction:column;min-height:100%}.product-card:hover{transform:translateY(-4px);border-color:rgba(255,122,0,.55);background:rgba(255,255,255,.09)}.product-img{width:100%;height:300px;object-fit:contain;background:linear-gradient(135deg,#242424,#111);padding:6px;border-radius:0;border:0;margin-bottom:0}.product-card .pill{display:none}.product-card h3{font-size:15px;margin:12px 14px 4px}.product-card p.muted{display:none}.stock{display:none}.not-stock{color:var(--red);font-weight:950;font-size:14px}.product-card .price{font-size:20px;margin:0 14px 14px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}.product-actions .btn{font-size:13px;padding:10px}
     .series,.benefits,.delivery{grid-template-columns:repeat(3,1fr)}.icon{font-size:30px;margin:18px 18px 10px}.series .card h3,.benefits .card h3,.delivery .card h3{margin:0 18px 8px}.series .card p,.benefits .card p,.delivery .card p{margin:0 18px 18px}.call-block{background:linear-gradient(135deg,#fff,#eff1f6);color:#111;border-radius:32px;padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center;box-shadow:var(--shadow)}.call-block .muted{color:#515866}
     footer{border-top:1px solid var(--line);padding:30px 0 92px;color:var(--muted)}.float-call{position:fixed;right:18px;bottom:18px;z-index:30;animation:pulse 1.8s infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}@keyframes heroCardIn{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes productFloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
-    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:100;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.modal-box{width:min(960px,100%);max-height:92vh;overflow:auto;background:#111620;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;padding:22px}.close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font-size:22px;cursor:pointer;z-index:2}.modal-img{width:100%;min-height:360px;object-fit:contain;background:#fff;border-radius:22px;border:1px solid var(--line)}.modal-info{padding:10px 6px}.modal-info h3{font-size:30px;margin:8px 0 10px}.modal-list{color:var(--muted);line-height:1.7;padding-left:18px}.modal-nav{display:flex;gap:10px;margin-top:16px}
+@keyframes ctaPulse{0%,100%{transform:scale(1);box-shadow:0 12px 40px rgba(255,122,0,.45)}50%{transform:scale(1.06);box-shadow:0 18px 60px rgba(255,122,0,.65)}}
+@keyframes arrowBounce{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(6px);opacity:1}}
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:100;align-items:center;justify-content:center;padding:18px;animation:fadeIn .25s ease}.modal.open{display:flex}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal-box{width:min(960px,100%);max-height:92vh;overflow:auto;background:#111620;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;padding:22px}.close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font-size:22px;cursor:pointer;z-index:2}.modal-img{width:100%;min-height:360px;object-fit:contain;background:#fff;border-radius:22px;border:1px solid var(--line)}.modal-info{padding:10px 6px}.modal-info h3{font-size:30px;margin:8px 0 10px}.modal-list{color:var(--muted);line-height:1.7;padding-left:18px}.modal-nav{display:flex;gap:10px;margin-top:16px}
     @media(max-width:1100px){nav{gap:12px;font-size:14px}.phone-text small{display:none}.logo{font-size:24px}.header-phone{gap:6px}}
-    @media(max-width:900px){.burger{display:flex}nav{display:none;position:absolute;left:16px;right:16px;top:76px;background:rgba(0,0,0,.96);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start;gap:6px;z-index:50}nav.open{display:flex}nav a{width:100%;padding:14px;border-radius:12px}nav a.active:after{display:none}nav a.active{background:rgba(255,122,0,.14)}.header-phone{margin-left:auto}.hero-grid,.call-block,.modal-box{grid-template-columns:1fr}.grid,.series,.benefits,.delivery{grid-template-columns:1fr 1fr}.hero-stack{min-height:470px}.seat-fan img{width:74%.hero-card img{height:360px}.product-img{height:280px}.trust{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.grid,.series,.benefits,.delivery{grid-template-columns:1fr}.hero-stack{min-height:390px}.seat-fan{inset:12px 0 82px}.seat-fan img{width:82%.hero-stack-info{bottom:0}.hero-card img{height:320px}.product-img{height:300px}.header-phone{display:none}header .btn{display:none}.hero{padding-top:46px}.trust{grid-template-columns:1fr;gap:14px}.product-actions{grid-template-columns:1fr}.modal-img{min-height:240px}.call-block{padding:24px}.logo{font-size:22px}.logo small{font-size:9px}}
-  </style>
+    @media(max-width:900px){.burger{display:flex}nav{display:none;position:absolute;left:16px;right:16px;top:76px;background:rgba(0,0,0,.96);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start;gap:6px;z-index:50}nav.open{display:flex}nav a{width:100%;padding:14px;border-radius:12px}nav a.active:after{display:none}nav a.active{background:rgba(255,122,0,.14)}.header-phone{margin-left:auto}.hero-grid,.call-block,.modal-box{grid-template-columns:1fr}.grid,.series,.benefits,.delivery{grid-template-columns:1fr 1fr}.hero-stack{min-height:470px}.seat-fan img{width:74%}.product-img{height:280px}.trust{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.grid,.series,.benefits,.delivery{grid-template-columns:1fr}.hero-stack{min-height:390px}.seat-fan{inset:12px 0 82px}.seat-fan img{width:82%}.product-img{height:300px}.header-phone{display:none}header .btn{display:none}.hero{padding-top:46px}.trust{grid-template-columns:1fr;gap:14px}.product-actions{grid-template-columns:1fr}.modal-img{min-height:240px}.call-block{padding:24px}.logo{font-size:22px}.logo small{font-size:9px}}
+  @keyframes modalPop{0%{transform:scale(.85) translateY(20px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
+
+</style>
 </head>
 <body>
   <header>
@@ -86,16 +110,14 @@
           </div>
         </div>
         <div class="hero-stack">
-          <div class="seat-fan" aria-label="Популярные сиденья ONEGRIPPER">
-            <img src="imagesno-bg/OGSC03-LR-BEWHWH.png" alt="ONEGRIPPER LIGHT RIB Blue / White">
-            <img src="imagesno-bg/OGSC03-LR-BLWHWH.png" alt="ONEGRIPPER LIGHT RIB Black / White">
-            <img src="imagesno-bg/OGSC03-LR-BLOEOE.png" alt="ONEGRIPPER LIGHT RIB Orange / White">
-            <img src="imagesno-bg/OGSC03-LR-RDWHWH.png" alt="ONEGRIPPER LIGHT RIB Red / White">
-            <img src="imagesno-bg/OGSC03-LR-DBWHWH.png" alt="ONEGRIPPER LIGHT RIB Dark Blue / White">
+          <div class="seat-fan" aria-label="Популярное сиденье ONEGRIPPER">
+            <img id="heroSeat" src="imagesno-bg/OGSC03-LR-BEWHWH.png" alt="ONEGRIPPER LIGHT RIB">
           </div>
-          <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:6;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#111;font-weight:950;text-transform:uppercase;font-size:13px;letter-spacing:.5px;padding:12px 18px;border-radius:999px;box-shadow:0 12px 30px rgba(255,122,0,.35)">
-            Выбор райдеров
-          </div>
+          <a href="#products" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:6;text-decoration:none">
+  <div style="background:linear-gradient(135deg,var(--orange),var(--orange2));color:#111;font-weight:950;text-transform:uppercase;font-size:20px;letter-spacing:1px;padding:16px 32px;border-radius:999px;box-shadow:0 12px 40px rgba(255,122,0,.45);animation:ctaPulse 1.8s infinite">
+    🚀 ВЫБОР РАЙДЕРОВ
+  </div>
+</a>
         </div>
       </div>
         </div>
@@ -145,7 +167,7 @@
 
     const productsGrid=document.getElementById('productsGrid');const filters=document.querySelectorAll('.filter');
     function seriesName(s){return{light:'LIGHT RIB',original:'ORIGINAL V2',hex:'HEX XXL',bracket:'Кронштейн'}[s]||'ONEGRIPPER'}
-    function renderProducts(filter='all'){currentProducts=filter==='all'?products:products.filter(p=>p.series===filter);productsGrid.innerHTML=currentProducts.map((p,i)=>`<article class="card product-card" onclick="openModal(${i})"><img class="product-img" src="${p.img}" alt="${p.name}"><span class="pill">${seriesName(p.series)}</span><h3>${p.name}</h3><p class="muted">${p.desc}</p><div class="stock">В наличии / под заказ</div><div class="price">${p.price.toLocaleString('ru-RU')} ₸</div><div class="product-actions"><button class="btn small dark" onclick="event.stopPropagation();openModal(${i})">Подробнее</button><a class="btn small" href="tel:${phone}" onclick="event.stopPropagation()">Позвонить</a></div></article>`).join('')}
+    function renderProducts(filter='all'){currentProducts=filter==='all'?products:products.filter(p=>p.series===filter);productsGrid.innerHTML=currentProducts.map((p,i)=>`<article class="card product-card" onclick="openModal(${i})"><img class="product-img" src="${p.img}" alt="${p.name}"><span class="pill">${seriesName(p.series)}</span><h3>${p.name}</h3><p class="muted">${p.desc}</p><div class="stock">В наличии / под заказ</div><div class="price">${p.price.toLocaleString('ru-RU')} ₸</div><div class="product-actions"><button class="btn small dark" onclick="event.stopPropagation();openModal(${i})">Подробнее</button><button class="btn small" onclick="event.stopPropagation();openBuyModal()">🛒 Купить</button></div></article>`).join('')}
     function openModal(i){currentIndex=i;const p=currentProducts[currentIndex];document.getElementById('modalImg').src=p.img;document.getElementById('modalSeries').innerText=seriesName(p.series);document.getElementById('modalTitle').innerText=p.name;document.getElementById('modalStock').innerText='В наличии / под заказ';document.getElementById('modalPrice').innerText=p.price.toLocaleString('ru-RU')+' ₸';document.getElementById('modalDesc').innerText=p.desc;document.getElementById('modalList').innerHTML=p.points.map(x=>`<li>${x}</li>`).join('');document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
     function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
     function changeProduct(step){currentIndex=(currentIndex+step+currentProducts.length)%currentProducts.length;openModal(currentIndex)}
@@ -162,6 +184,14 @@
       return href && href.startsWith('#') && href.length>1;
     });
     const observedSections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+// плавный скролл при клике на якорь "Выбор райдеров"
+document.querySelectorAll('a[href="#products"]').forEach(el=>{
+  el.addEventListener('click',e=>{
+    e.preventDefault();
+    document.getElementById('products').scrollIntoView({behavior:'smooth'});
+  });
+});
 
     burger.addEventListener('click',()=>{
       const isOpen=mainNav.classList.toggle('open');
@@ -182,8 +212,15 @@
       observedSections.forEach(section=>{if(section.getBoundingClientRect().top<=offset){currentId=section.id}});
       navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+currentId));
     }
-    window.addEventListener('scroll',()=>{updateHeaderState();updateActiveNav()},{passive:true});
-    updateHeaderState();updateActiveNav();
+    function updateHeroParallax(){
+      const hero=document.querySelector('.hero');
+      if(!hero) return;
+      const rect=hero.getBoundingClientRect();
+      const shift=Math.max(-34,Math.min(34,rect.top*-0.08));
+      hero.style.setProperty('--rider-shift',shift+'px');
+    }
+    window.addEventListener('scroll',()=>{updateHeaderState();updateActiveNav();updateHeroParallax()},{passive:true});
+    updateHeaderState();updateActiveNav();updateHeroParallax();
 
     function runSelfTests(){
       console.assert(document.querySelectorAll('#mainNav a[href=""]').length===0,'В меню не должно быть пустых ссылок');
@@ -193,6 +230,53 @@
       console.assert([...document.querySelectorAll('a[href^="tel:"]')].every(a=>a.getAttribute('href')==='tel:+77750182889'),'Все телефонные ссылки должны вести на +77750182889');
     }
     runSelfTests();
+
+// смена цвета сиденья в hero каждые 3–4 сек
+const heroSeat=document.getElementById('heroSeat');
+const heroSeats=[
+  'imagesno-bg/OGSC03-LR-BEWHWH.png',
+  'imagesno-bg/OGSC03-LR-BLOEOE.png',
+  'imagesno-bg/OGSC03-LR-BLWHWH.png',
+  'imagesno-bg/OGSC03-LR-DBWHWH.png',
+  'imagesno-bg/OGSC03-LR-RDWHWH.png'
+];
+let heroIndex=0;
+setInterval(()=>{
+  if(!heroSeat) return;
+  heroSeat.classList.add('fade-out');
+  setTimeout(()=>{
+    heroIndex=(heroIndex+1)%heroSeats.length;
+    heroSeat.src=heroSeats[heroIndex];
+    heroSeat.classList.remove('fade-out');
+  },350);
+},3600);
   </script>
+
+
+  <!-- Buy Modal -->
+  <div class="modal" id="buyModal">
+    <div class="modal-box" style="grid-template-columns:1fr;max-width:420px;text-align:center;padding:28px;transform:scale(.92);animation:modalPop .35s ease forwards">
+      <button class="close" onclick="closeBuyModal()">×</button>
+      <div style="font-size:56px;margin-bottom:12px;filter:drop-shadow(0 10px 20px rgba(255,122,0,.35))">🛒</div>
+      <h3 style="margin:0 0 10px;font-size:22px">Оформление заказа</h3>
+      <p class="muted" style="margin-bottom:20px;line-height:1.5">Заказ оформляется через менеджера.<br>Подберём идеальный вариант и быстро оформим доставку.</p>
+      <a class="btn" href="tel:+77750182889">📞 Связаться</a>
+    </div>
+  </div>
+
+  <script>
+    function openBuyModal(){
+      document.getElementById('buyModal').classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    function closeBuyModal(){
+      document.getElementById('buyModal').classList.remove('open');
+      document.body.style.overflow='';
+    }
+    document.getElementById('buyModal').addEventListener('click',e=>{
+      if(e.target.id==='buyModal') closeBuyModal();
+    });
+  </script>
+
 </body>
 </html>
