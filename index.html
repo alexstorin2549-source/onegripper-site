@@ -6,13 +6,13 @@
   <title>ONEGRIPPER — сиденья для эндуро</title>
   <style>
     :root{
-      --bg:#080a0f;--bg2:#10141d;--card:rgba(255,255,255,.07);--text:#f7f7f8;--muted:#a8afbd;
-      --orange:#ff7a00;--orange2:#ffb000;--line:rgba(255,255,255,.13);--green:#32d583;--red:#ff5757;
-      --shadow:0 28px 80px rgba(0,0,0,.45)
+      --bg:#080a0f;--text:#f7f7f8;--muted:#a8afbd;
+      --orange:#ff7a00;--orange2:#ffb000;--line:rgba(255,255,255,.13);
+      --green:#32d583;--red:#ff5757;--shadow:0 28px 80px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 80% 0%,rgba(255,122,0,.18),transparent 34%),radial-gradient(circle at 12% 28%,rgba(255,176,0,.08),transparent 24%),var(--bg);color:var(--text)}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
     a{text-decoration:none;color:inherit}
     .container{width:min(1180px,calc(100% - 32px));margin:auto}
     .muted{color:var(--muted)}
@@ -22,150 +22,44 @@
     @keyframes headerDrop{to{transform:translateY(0);opacity:1}}
     header .container{padding:14px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative}
     .logo{font-size:28px;font-weight:950;font-style:italic;letter-spacing:-1px;text-transform:uppercase;white-space:nowrap}
-    .logo small{display:block;font-size:10px;font-style:normal;letter-spacing:.9px;color:#fff;margin-top:3px}
-    .logo span{color:var(--orange)}
+    .logo small{display:block;font-size:10px;font-style:normal;letter-spacing:.9px;color:#fff;margin-top:3px}.logo span{color:var(--orange)}
     nav{display:flex;gap:18px;color:#fff;font-size:16px;font-weight:900;text-transform:uppercase;flex:1;justify-content:center;white-space:nowrap}
-    nav a{position:relative;padding:8px 0;transition:.2s ease}
-    nav a:hover,nav a.active{color:var(--orange)}
-    nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:99px;background:var(--orange)}
-    .header-phone{display:flex;align-items:center;gap:8px;white-space:nowrap}
-    .phone-icon{width:46px;height:46px;border:2px solid var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:22px;flex:0 0 auto}
-    .phone-text{line-height:1.15}.phone-text strong{display:block;font-size:18px}.phone-text small{color:var(--muted);font-size:12px}
-    .burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.06);cursor:pointer;align-items:center;justify-content:center;gap:5px;flex-direction:column;flex:0 0 auto}
-    .burger span{display:block;width:22px;height:2px;background:#fff;border-radius:5px;transition:.2s ease}
-    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-    .burger.open span:nth-child(2){opacity:0}
-    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
+    nav a{position:relative;padding:8px 0;transition:.2s ease}nav a:hover,nav a.active{color:var(--orange)}nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:99px;background:var(--orange)}
+    .header-phone{display:flex;align-items:center;gap:8px;white-space:nowrap}.phone-icon{width:46px;height:46px;border:2px solid var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:22px;flex:0 0 auto}.phone-text{line-height:1.15}.phone-text strong{display:block;font-size:18px}.phone-text small{color:var(--muted);font-size:12px}
+    .burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.06);cursor:pointer;align-items:center;justify-content:center;gap:5px;flex-direction:column;flex:0 0 auto}.burger span{display:block;width:22px;height:2px;background:#fff;border-radius:5px;transition:.2s ease}.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0}.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:13px 18px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#111;font-weight:950;cursor:pointer;box-shadow:0 14px 35px rgba(255,122,0,.23);transition:.2s;text-align:center}.btn:hover{transform:translateY(-2px)}.btn.dark{background:rgba(255,255,255,.06);color:#fff;border:1px solid var(--line);box-shadow:none}.btn.small{padding:11px 13px;border-radius:12px;font-size:14px}
+
     .hero{padding:90px 0 70px;border-bottom:1px solid var(--line);overflow:hidden;position:relative;min-height:720px;background:linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.7) 45%,rgba(255,122,0,.1) 100%),radial-gradient(circle at 73% 40%,rgba(255,122,0,.25),transparent 32%),#050505;--rider-shift:0px}
-
-/* фон с райдерами */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:-6%;
-  background:
-    url('images/rider1.jpg') left center / 42% auto no-repeat,
-    url('images/rider2.jpg') right center / 42% auto no-repeat;
-  opacity:0.34;
-  filter:grayscale(20%) contrast(115%);
-  z-index:0;
-  pointer-events:none;
-  transform:translateY(var(--rider-shift)) scale(1.04);
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(90deg,
-      rgba(5,5,5,.72) 0%,
-      rgba(5,5,5,.84) 28%,
-      rgba(5,5,5,.98) 52%,
-      rgba(5,5,5,.82) 68%,
-      rgba(5,5,5,.56) 100%),
-    radial-gradient(circle at 76% 55%, rgba(255,122,0,.16), transparent 34%);
-  z-index:1;
-  pointer-events:none;
-}.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:6px;border:1px solid rgba(255,122,0,.36);background:rgba(255,122,0,.16);color:var(--orange);font-weight:950;margin-bottom:18px;text-transform:uppercase}
-    h1{font-size:clamp(40px,6.2vw,76px);line-height:.95;letter-spacing:-2px;margin:0 0 20px;text-transform:uppercase}h1 span,h2 span{color:var(--orange)}.lead{font-size:22px;line-height:1.45;max-width:700px;margin:0 0 26px;color:#f1f1f1}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}.trust{display:grid;grid-template-columns:repeat(4,max-content);gap:24px;align-items:center;margin-top:28px}.trust span{border:0;background:transparent;padding:0;color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;gap:10px}.trust span:before{content:"";width:38px;height:4px;border:0;border-radius:999px;display:inline-block;background:linear-gradient(90deg,var(--orange),transparent);opacity:.62;box-shadow:0 0 14px rgba(255,122,0,.45)}
-    .hero-stack{min-height:640px;position:relative;display:flex;align-items:center;justify-content:center;animation:heroCardIn .8s ease .15s both}.seat-fan{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-/* неоновая подсветка снизу */
-.seat-fan::after{content:"";position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:60%;height:18%;background:radial-gradient(ellipse at center, rgba(255,122,0,.45) 0%, rgba(255,122,0,.25) 40%, rgba(255,122,0,0) 70%);filter:blur(22px);z-index:1;pointer-events:none}
-.seat-fan img {
-  position: relative;
-  z-index: 2;
-
-  height: 70vh;
-  width: auto;
-
-  object-fit: contain;
-
-  filter: drop-shadow(0 40px 60px rgba(0,0,0,.8));
-
-  animation: productFloat 3.5s ease-in-out infinite;
-
-  transform: translateX(-30px);
-}
-.seat-fan img.fade-out{opacity:0}.seat-fan img:nth-child(1){left:12%;top:0;z-index:5;transform:rotate(0deg);animation-delay:0s}.seat-fan img:nth-child(2){left:-4%;top:62px;z-index:3;transform:rotate(-10deg) scale(.82);animation-delay:.35s}.seat-fan img:nth-child(3){right:-8%;top:62px;z-index:3;transform:rotate(10deg) scale(.82);animation-delay:.7s}.seat-fan img:nth-child(4){left:2%;top:148px;z-index:2;transform:rotate(-17deg) scale(.68);animation-delay:1.05s}.seat-fan img:nth-child(5){right:-2%;top:148px;z-index:2;transform:rotate(17deg) scale(.68);animation-delay:1.4s}.hero-stack-info h3{margin:6px 0 4px}.hero-stack .price{font-size:26px;margin-bottom:12px}.price{color:var(--orange);font-size:28px;font-weight:950;margin:8px 0}.pill{display:inline-flex;width:max-content;padding:6px 10px;border-radius:999px;background:rgba(255,122,0,.12);color:var(--orange2);font-weight:950;font-size:12px;margin-bottom:10px}
+    .hero::after{content:"";position:absolute;inset:-6%;background:url('images/rider1.jpg') left center / 42% auto no-repeat,url('images/rider2.jpg') right center / 42% auto no-repeat;opacity:.34;filter:grayscale(20%) contrast(115%);z-index:0;pointer-events:none;transform:translateY(var(--rider-shift)) scale(1.04)}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.72) 0%,rgba(5,5,5,.84) 28%,rgba(5,5,5,.98) 52%,rgba(5,5,5,.82) 68%,rgba(5,5,5,.56) 100%),radial-gradient(circle at 76% 55%,rgba(255,122,0,.16),transparent 34%);z-index:1;pointer-events:none}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.badge{display:inline-flex;padding:8px 12px;border-radius:6px;border:1px solid rgba(255,122,0,.36);background:rgba(255,122,0,.16);color:var(--orange);font-weight:950;margin-bottom:18px;text-transform:uppercase}
+    h1{font-size:clamp(40px,6.2vw,76px);line-height:.95;letter-spacing:-2px;margin:0 0 20px;text-transform:uppercase}h1 span,h2 span{color:var(--orange)}.lead{font-size:22px;line-height:1.45;max-width:700px;margin:0 0 26px;color:#f1f1f1}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}.trust{display:grid;grid-template-columns:repeat(4,max-content);gap:24px;align-items:center;margin-top:28px}.trust span{color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;gap:10px}.trust span:before{content:"";width:38px;height:4px;border-radius:999px;display:inline-block;background:linear-gradient(90deg,var(--orange),transparent);opacity:.62;box-shadow:0 0 14px rgba(255,122,0,.45)}
+    .hero-stack{min-height:640px;position:relative;display:flex;align-items:center;justify-content:center;animation:heroCardIn .8s ease .15s both}.seat-fan{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.seat-fan::after{content:"";position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:60%;height:18%;background:radial-gradient(ellipse at center,rgba(255,122,0,.45) 0%,rgba(255,122,0,.25) 40%,rgba(255,122,0,0) 70%);filter:blur(22px);z-index:1;pointer-events:none}.seat-fan img{position:relative;z-index:2;height:70vh;width:auto;object-fit:contain;filter:drop-shadow(0 40px 60px rgba(0,0,0,.8));animation:productFloat 3.5s ease-in-out infinite;transition:opacity .4s ease}.seat-fan img.fade-out{opacity:0}
+    .price{color:var(--orange);font-size:28px;font-weight:950;margin:8px 0}.pill{display:inline-flex;width:max-content;padding:6px 10px;border-radius:999px;background:rgba(255,122,0,.12);color:var(--orange2);font-weight:950;font-size:12px;margin-bottom:10px}
     section{padding:64px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:26px}h2{font-size:clamp(30px,4vw,46px);line-height:1;margin:0 0 8px;letter-spacing:-1.4px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}.filter{border:1px solid var(--line);background:rgba(255,255,255,.055);color:#fff;padding:10px 14px;border-radius:999px;font-weight:950;cursor:pointer}.filter.active,.filter:hover{background:var(--orange);border-color:var(--orange);color:#111}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:0;box-shadow:0 16px 50px rgba(0,0,0,.22);overflow:hidden}.product-card{cursor:pointer;transition:.2s;display:flex;flex-direction:column;min-height:100%}.product-card:hover{transform:translateY(-4px);border-color:rgba(255,122,0,.55);background:rgba(255,255,255,.09)}.product-img{width:100%;height:300px;object-fit:contain;background:linear-gradient(135deg,#242424,#111);padding:6px;border-radius:0;border:0;margin-bottom:0}.product-card .pill{display:none}.product-card h3{font-size:15px;margin:12px 14px 4px}.product-card p.muted{display:none}.stock{display:none}.not-stock{color:var(--red);font-weight:950;font-size:14px}.product-card .price{font-size:20px;margin:0 14px 14px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}.product-actions .btn{font-size:13px;padding:10px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:0;box-shadow:0 16px 50px rgba(0,0,0,.22);overflow:hidden}.product-card{cursor:pointer;transition:.2s;display:flex;flex-direction:column;min-height:100%}.product-card:hover{transform:translateY(-4px);border-color:rgba(255,122,0,.55);background:rgba(255,255,255,.09)}.product-img{width:100%;height:300px;object-fit:contain;background:linear-gradient(135deg,#242424,#111);padding:6px}.product-card .pill,.product-card p.muted,.stock{display:none}.product-card h3{font-size:15px;margin:12px 14px 4px}.product-card .price{font-size:20px;margin:0 14px 14px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}.product-actions .btn{font-size:13px;padding:10px}
     .series,.benefits,.delivery{grid-template-columns:repeat(3,1fr)}.icon{font-size:30px;margin:18px 18px 10px}.series .card h3,.benefits .card h3,.delivery .card h3{margin:0 18px 8px}.series .card p,.benefits .card p,.delivery .card p{margin:0 18px 18px}.call-block{background:linear-gradient(135deg,#fff,#eff1f6);color:#111;border-radius:32px;padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center;box-shadow:var(--shadow)}.call-block .muted{color:#515866}
-    footer{border-top:1px solid var(--line);padding:30px 0 92px;color:var(--muted)}.float-call{position:fixed;right:18px;bottom:18px;z-index:30;animation:pulse 1.8s infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}@keyframes heroCardIn{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}50%{translate:0 -10px}}
-@keyframes ctaPulse{0%,100%{transform:scale(1);box-shadow:0 12px 40px rgba(255,122,0,.45)}50%{transform:scale(1.06);box-shadow:0 18px 60px rgba(255,122,0,.65)}}
-@keyframes arrowBounce{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(6px);opacity:1}}
-    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:100;align-items:center;justify-content:center;padding:18px;animation:fadeIn .25s ease}.modal.open{display:flex}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal-box{width:min(960px,100%);max-height:92vh;overflow:auto;background:#111620;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;padding:22px}.close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font-size:22px;cursor:pointer;z-index:2}.modal-img{width:100%;min-height:360px;object-fit:contain;background:#fff;border-radius:22px;border:1px solid var(--line)}.modal-info{padding:10px 6px}.modal-info h3{font-size:30px;margin:8px 0 10px}.modal-list{color:var(--muted);line-height:1.7;padding-left:18px}.modal-nav{display:flex;gap:10px;margin-top:16px}
+    footer{border-top:1px solid var(--line);padding:30px 0 92px;color:var(--muted)}.float-call{position:fixed;right:18px;bottom:18px;z-index:30;animation:pulse 1.8s infinite}
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:100;align-items:center;justify-content:center;padding:18px;animation:fadeIn .25s ease}.modal.open{display:flex}.modal-box{width:min(960px,100%);max-height:92vh;overflow:auto;background:#111620;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;padding:22px}.close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font-size:22px;cursor:pointer;z-index:2}.modal-img{width:100%;min-height:360px;object-fit:contain;background:#fff;border-radius:22px;border:1px solid var(--line)}.modal-info{padding:10px 6px}.modal-info h3{font-size:30px;margin:8px 0 10px}.modal-list{color:var(--muted);line-height:1.7;padding-left:18px}.modal-nav{display:flex;gap:10px;margin-top:16px}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}@keyframes heroCardIn{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes productFloat{0%,100%{transform:translate(-30px,0)}50%{transform:translate(-30px,-10px)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes modalPop{0%{transform:scale(.85) translateY(20px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
     @media(max-width:1100px){nav{gap:12px;font-size:14px}.phone-text small{display:none}.logo{font-size:24px}.header-phone{gap:6px}}
-    @media(max-width:900px){.burger{display:flex}nav{display:none;position:absolute;left:16px;right:16px;top:76px;background:rgba(0,0,0,.96);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start;gap:6px;z-index:50}nav.open{display:flex}nav a{width:100%;padding:14px;border-radius:12px}nav a.active:after{display:none}nav a.active{background:rgba(255,122,0,.14)}.header-phone{margin-left:auto}.hero-grid,.call-block,.modal-box{grid-template-columns:1fr}.grid,.series,.benefits,.delivery{grid-template-columns:1fr 1fr}.hero-stack{min-height:470px}.seat-fan img{width:74%}.product-img{height:280px}.trust{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.grid,.series,.benefits,.delivery{grid-template-columns:1fr}.hero-stack{min-height:390px}.seat-fan{inset:12px 0 82px}.seat-fan img{width:82%}.product-img{height:300px}.header-phone{display:none}header .btn{display:none}.hero{padding-top:46px}.trust{grid-template-columns:1fr;gap:14px}.product-actions{grid-template-columns:1fr}.modal-img{min-height:240px}.call-block{padding:24px}.logo{font-size:22px}.logo small{font-size:9px}}
-  @keyframes modalPop{0%{transform:scale(.85) translateY(20px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
-
-@keyframes productFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-
-</style>
+    @media(max-width:900px){.burger{display:flex}nav{display:none;position:absolute;left:16px;right:16px;top:76px;background:rgba(0,0,0,.96);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start;gap:6px;z-index:50}nav.open{display:flex}nav a{width:100%;padding:14px;border-radius:12px}nav a.active:after{display:none}nav a.active{background:rgba(255,122,0,.14)}.header-phone{margin-left:auto}.hero-grid,.call-block,.modal-box{grid-template-columns:1fr}.grid,.series,.benefits,.delivery{grid-template-columns:1fr 1fr}.hero-stack{min-height:470px}.seat-fan img{height:58vh}.product-img{height:280px}.trust{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.grid,.series,.benefits,.delivery{grid-template-columns:1fr}.hero{padding-top:46px;min-height:auto}.hero-stack{min-height:390px}.seat-fan img{height:42vh}.product-img{height:300px}.header-phone{display:none}header .btn{display:none}.trust{grid-template-columns:1fr;gap:14px}.product-actions{grid-template-columns:1fr}.modal-img{min-height:240px}.call-block{padding:24px}.logo{font-size:22px}.logo small{font-size:9px}}
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a class="logo" href="#">ONE<span>GRIPPER</span><small>чехлы сидений для эндуро</small></a>
-      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav id="mainNav">
-        
-        <a href="#series">Серии</a>
-        <a href="#benefits">Плюсы</a>
-        <a href="#delivery">Доставка</a>
-      </nav>
-      <div class="header-phone"><div class="phone-icon">☎</div><div class="phone-text"><strong>+7 775 018 2889</strong><small>ежедневно с 9:00 до 21:00</small></div></div>
-      <a class="btn" href="tel:+77750182889">Позвонить</a>
-    </div>
-  </header>
-
+  <header><div class="container"><a class="logo" href="#">ONE<span>GRIPPER</span><small>чехлы сидений для эндуро</small></a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button><nav id="mainNav"><a href="#products">Каталог</a><a href="#series">Серии</a><a href="#benefits">Плюсы</a><a href="#delivery">Доставка</a></nav><div class="header-phone"><div class="phone-icon">☎</div><div class="phone-text"><strong>+7 775 018 2889</strong><small>ежедневно с 9:00 до 21:00</small></div></div><a class="btn" href="tel:+77750182889">Позвонить</a></div></header>
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="badge">Premium качество</div>
-          <h1>Сиденья ONEGRIPPER:<br><span>зацеп, контроль,<br>меньше усталости</span></h1>
-          <p class="lead">Максимальное сцепление в любых условиях. Больше контроля, меньше усталости, быстрее результат.</p>
-          <div class="hero-actions">
-            <a class="btn" href="tel:+77750182889">📞 Позвонить сейчас</a>
-            <a class="btn dark" >Смотреть каталог</a>
-          </div>
-          <div class="trust">
-            <span>Лучшее сцепление</span>
-            <span>Повышенная прочность</span>
-            <span>100% водонепроницаемый</span>
-            <span>Экономия энергии</span>
-          </div>
-        </div>
-        <div class="hero-stack">
-          <div class="seat-fan" aria-label="Популярное сиденье ONEGRIPPER">
-            <img id="heroSeat" src="imagesno-bg/OGSC03-LR-BEWHWH.png" alt="ONEGRIPPER LIGHT RIB">
-          </div>
-          
-        </div>
-      </div>
-        </div>
-      </div>
-    </section>
-
+    <section class="hero"><div class="container hero-grid"><div><div class="badge">Premium качество</div><h1>Сиденья ONEGRIPPER:<br><span>зацеп, контроль,<br>меньше усталости</span></h1><p class="lead">Максимальное сцепление в любых условиях. Больше контроля, меньше усталости, быстрее результат.</p><div class="hero-actions"><a class="btn" href="tel:+77750182889">📞 Позвонить сейчас</a><a class="btn dark" href="#products">Смотреть каталог</a></div><div class="trust"><span>Лучшее сцепление</span><span>Повышенная прочность</span><span>100% водонепроницаемый</span><span>Экономия энергии</span></div></div><div class="hero-stack"><div class="seat-fan" aria-label="Популярное сиденье ONEGRIPPER"><img id="heroSeat" src="imagesno-bg/OGSC03-LR-BEWHWH.png" alt="ONEGRIPPER LIGHT RIB"></div></div></div></section>
     <section id="products"><div class="container"><div class="section-head"><div><h2>Каталог <span>сидений</span></h2><p class="muted">Нажмите на карточку, чтобы открыть подробности товара поверх сайта.</p></div></div><div class="filters"><button class="filter active" data-filter="all">Все</button><button class="filter" data-filter="light">LIGHT RIB</button><button class="filter" data-filter="original">ORIGINAL V2</button><button class="filter" data-filter="hex">HEX XXL</button><button class="filter" data-filter="bracket">Кронштейны</button></div><div class="grid" id="productsGrid"></div></div></section>
-
     <section id="series"><div class="container"><div class="section-head"><h2>Чем отличаются серии</h2></div><div class="grid series"><div class="card"><div class="icon">🟦</div><h3>LIGHT RIB</h3><p class="muted">Меньшие точки и комфортный зацеп уровня 1. Хороший вариант для длительной езды без чрезмерной агрессии.</p></div><div class="card"><div class="icon">⬛</div><h3>ORIGINAL V2</h3><p class="muted">Универсальная серия с увеличенным размером 930 × 415 мм. База для тренировок, покатушек и гонок.</p></div><div class="card"><div class="icon">⬢</div><h3>HEX XXL</h3><p class="muted">Самый большой размер 1020 × 480 мм. Отлично для KTM 690, Stark VARG и большинства мотоциклов.</p></div></div></div></section>
-
     <section id="benefits"><div class="container"><div class="section-head"><h2>Преимущества</h2></div><div class="grid benefits"><div class="card"><div class="icon">🧲</div><h3>Лучшее сцепление</h3><p class="muted">Баланс между избыточным и недостаточным сцеплением в любых условиях.</p></div><div class="card"><div class="icon">💪</div><h3>Меньше усталости</h3><p class="muted">Руки меньше забиваются, к концу заезда остаётся больше сил.</p></div><div class="card"><div class="icon">💧</div><h3>Водонепроницаемость</h3><p class="muted">Чехол легко мыть, пена сиденья остаётся сухой дольше.</p></div><div class="card"><div class="icon">🛡️</div><h3>Повышенная прочность</h3><p class="muted">Служит в 2–3 раза дольше стандартных чехлов.</p></div><div class="card"><div class="icon">🎨</div><h3>Много цветов</h3><p class="muted">Можно подобрать под KTM, Husqvarna, GASGAS или свой стиль.</p></div><div class="card"><div class="icon">📞</div><h3>Быстрый заказ</h3><p class="muted">Нажал, позвонил, уточнил наличие. Без сложной формы.</p></div></div></div></section>
-
     <section><div class="container"><div class="call-block"><div><h2>Хотите заказать сиденье?</h2><p class="muted">Позвоните, уточним наличие, цвет и доставку. Без формы, без лишней переписки.</p></div><a class="btn" href="tel:+77750182889">📞 Позвонить +7 775 018 2889</a></div></div></section>
-
     <section id="delivery"><div class="container"><div class="section-head"><h2>Доставка и оплата</h2></div><div class="grid delivery"><div class="card"><div class="icon">🇰🇿</div><h3>Казахстан</h3><p class="muted">Доставка транспортными службами. Условия уточняются по телефону.</p></div><div class="card"><div class="icon">📦</div><h3>Отправка</h3><p class="muted">Уточним наличие, цвет и удобный способ доставки перед заказом.</p></div><div class="card"><div class="icon">💳</div><h3>Оплата</h3><p class="muted">Оплата по договорённости: перевод, предоплата или другой удобный вариант.</p></div></div></div></section>
   </main>
-
-  <footer id="contacts"><div class="container"><strong>Контакты:</strong> <a href="tel:+77750182889">+7 775 018 2889</a><br>БазаR Enduro • Сиденья ONEGRIPPER • Доставка по Казахстану</div></footer>
-  <a class="btn float-call" href="tel:+77750182889">📞 Позвонить</a>
-
+  <footer id="contacts"><div class="container"><strong>Контакты:</strong> <a href="tel:+77750182889">+7 775 018 2889</a><br>БазаR Enduro • Сиденья ONEGRIPPER • Доставка по Казахстану</div></footer><a class="btn float-call" href="tel:+77750182889">📞 Позвонить</a>
   <div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><img class="modal-img" id="modalImg" alt=""><div class="modal-info"><div class="pill" id="modalSeries"></div><h3 id="modalTitle"></h3><div id="modalStock" class="stock"></div><div class="price" id="modalPrice"></div><p class="muted" id="modalDesc"></p><ul class="modal-list" id="modalList"></ul><div class="modal-nav"><button class="btn dark" onclick="changeProduct(-1)">← Предыдущий</button><button class="btn dark" onclick="changeProduct(1)">Следующий →</button></div><div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px"><a class="btn" href="tel:+77750182889">📞 Позвонить</a><button class="btn dark" onclick="closeModal()">Закрыть</button></div></div></div></div>
-
+  <div class="modal" id="buyModal"><div class="modal-box" style="grid-template-columns:1fr;max-width:420px;text-align:center;padding:28px;animation:modalPop .35s ease forwards"><button class="close" onclick="closeBuyModal()">×</button><div style="font-size:56px;margin-bottom:12px;filter:drop-shadow(0 10px 20px rgba(255,122,0,.35))">🛒</div><h3 style="margin:0 0 10px;font-size:22px">Оформление заказа</h3><p class="muted" style="margin-bottom:20px;line-height:1.5">Заказ оформляется через менеджера.<br>Подберём идеальный вариант и быстро оформим доставку.</p><a class="btn" href="tel:+77750182889">📞 Связаться</a></div></div>
   <script>
     const phone='+77750182889';let currentProducts=[];let currentIndex=0;
     const baseSeatPoints=['Лучшее сцепление в любых условиях','Повышенная прочность: служит в 2–3 раза дольше стандартных чехлов','100% водонепроницаемый материал','Экономит силы и снижает усталость рук'];
@@ -190,119 +84,31 @@
       {name:'Кронштейн ONEGRIPPER KTM Black',series:'bracket',price:30037,img:'images/1_Seat_Mount_Bracket_-_Black_KTM.webp',desc:'Алюминиевое крепление сиденья для KTM с запатентованной гайкой для лёгкой установки.',points:['Для KTM','Прочный анодированный алюминий','Решает проблему треснувших креплений','Лёгкая установка']},
       {name:'Кронштейн ONEGRIPPER Husqvarna Black',series:'bracket',price:30037,img:'images/1_Seat_Mount_Bracket_-_Orange_Hu.webp',desc:'Алюминиевое крепление сиденья для Husqvarna с запатентованной гайкой для лёгкой установки.',points:['Для Husqvarna','Прочный анодированный алюминий','Решает проблему треснувших креплений','Лёгкая установка']}
     ];
-
     const productsGrid=document.getElementById('productsGrid');const filters=document.querySelectorAll('.filter');
     function seriesName(s){return{light:'LIGHT RIB',original:'ORIGINAL V2',hex:'HEX XXL',bracket:'Кронштейн'}[s]||'ONEGRIPPER'}
     function renderProducts(filter='all'){currentProducts=filter==='all'?products:products.filter(p=>p.series===filter);productsGrid.innerHTML=currentProducts.map((p,i)=>`<article class="card product-card" onclick="openModal(${i})"><img class="product-img" src="${p.img}" alt="${p.name}"><span class="pill">${seriesName(p.series)}</span><h3>${p.name}</h3><p class="muted">${p.desc}</p><div class="stock">В наличии / под заказ</div><div class="price">${p.price.toLocaleString('ru-RU')} ₸</div><div class="product-actions"><button class="btn small dark" onclick="event.stopPropagation();openModal(${i})">Подробнее</button><button class="btn small" onclick="event.stopPropagation();openBuyModal()">🛒 Купить</button></div></article>`).join('')}
     function openModal(i){currentIndex=i;const p=currentProducts[currentIndex];document.getElementById('modalImg').src=p.img;document.getElementById('modalSeries').innerText=seriesName(p.series);document.getElementById('modalTitle').innerText=p.name;document.getElementById('modalStock').innerText='В наличии / под заказ';document.getElementById('modalPrice').innerText=p.price.toLocaleString('ru-RU')+' ₸';document.getElementById('modalDesc').innerText=p.desc;document.getElementById('modalList').innerHTML=p.points.map(x=>`<li>${x}</li>`).join('');document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
     function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
     function changeProduct(step){currentIndex=(currentIndex+step+currentProducts.length)%currentProducts.length;openModal(currentIndex)}
+    function openBuyModal(){document.getElementById('buyModal').classList.add('open');document.body.style.overflow='hidden'}
+    function closeBuyModal(){document.getElementById('buyModal').classList.remove('open');document.body.style.overflow=''}
     filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderProducts(btn.dataset.filter)}));
-    document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if(document.getElementById('modal').classList.contains('open')&&e.key==='ArrowRight')changeProduct(1);if(document.getElementById('modal').classList.contains('open')&&e.key==='ArrowLeft')changeProduct(-1)});
+    document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});document.getElementById('buyModal').addEventListener('click',e=>{if(e.target.id==='buyModal')closeBuyModal()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeBuyModal()}if(document.getElementById('modal').classList.contains('open')&&e.key==='ArrowRight')changeProduct(1);if(document.getElementById('modal').classList.contains('open')&&e.key==='ArrowLeft')changeProduct(-1)});
     renderProducts();
-
-    const header=document.querySelector('header');
-    const burger=document.getElementById('burger');
-    const mainNav=document.getElementById('mainNav');
-    const navLinks=[...document.querySelectorAll('#mainNav a')].filter(link=>{
-      const href=link.getAttribute('href');
-      return href && href.startsWith('#') && href.length>1;
-    });
+    const header=document.querySelector('header'),burger=document.getElementById('burger'),mainNav=document.getElementById('mainNav');
+    const navLinks=[...document.querySelectorAll('#mainNav a')].filter(link=>{const href=link.getAttribute('href');return href&&href.startsWith('#')&&href.length>1});
     const observedSections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
-
-// плавный скролл при клике на якорь "Выбор райдеров"
-document.querySelectorAll('a[]').forEach(el=>{
-  el.addEventListener('click',e=>{
-    e.preventDefault();
-    document.getElementById('products').scrollIntoView({behavior:'smooth'});
-  });
-});
-
-    burger.addEventListener('click',()=>{
-      const isOpen=mainNav.classList.toggle('open');
-      burger.classList.toggle('open',isOpen);
-      burger.setAttribute('aria-expanded',isOpen?'true':'false');
-    });
-
-    navLinks.forEach(link=>link.addEventListener('click',()=>{
-      mainNav.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-    }));
-
+    document.querySelectorAll('a[href^="#"]').forEach(el=>{el.addEventListener('click',e=>{const href=el.getAttribute('href');if(!href||href==='#')return;const target=document.querySelector(href);if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}})});
+    burger.addEventListener('click',()=>{const isOpen=mainNav.classList.toggle('open');burger.classList.toggle('open',isOpen);burger.setAttribute('aria-expanded',isOpen?'true':'false')});
+    navLinks.forEach(link=>link.addEventListener('click',()=>{mainNav.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
     function updateHeaderState(){header.classList.toggle('scrolled',window.scrollY>20)}
-    function updateActiveNav(){
-      const offset=window.innerHeight*.34;
-      let currentId=observedSections[0]?.id||'products';
-      observedSections.forEach(section=>{if(section.getBoundingClientRect().top<=offset){currentId=section.id}});
-      navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+currentId));
-    }
-    function updateHeroParallax(){
-      const hero=document.querySelector('.hero');
-      if(!hero) return;
-      const rect=hero.getBoundingClientRect();
-      const shift=Math.max(-34,Math.min(34,rect.top*-0.08));
-      hero.style.setProperty('--rider-shift',shift+'px');
-    }
-    window.addEventListener('scroll',()=>{updateHeaderState();updateActiveNav();updateHeroParallax()},{passive:true});
-    updateHeaderState();updateActiveNav();updateHeroParallax();
-
-    function runSelfTests(){
-      console.assert(document.querySelectorAll('#mainNav a[href=""]').length===0,'В меню не должно быть пустых ссылок');
-      console.assert(navLinks.length===4,'В меню должно быть 4 рабочие ссылки');
-      console.assert(observedSections.length===4,'Для каждой ссылки меню должна существовать секция');
-      console.assert(products.length===19,'В каталоге должно быть 19 товаров');
-      console.assert([...document.querySelectorAll('a[href^="tel:"]')].every(a=>a.getAttribute('href')==='tel:+77750182889'),'Все телефонные ссылки должны вести на +77750182889');
-    }
+    function updateActiveNav(){const offset=window.innerHeight*.34;let currentId=observedSections[0]?.id||'products';observedSections.forEach(section=>{if(section.getBoundingClientRect().top<=offset)currentId=section.id});navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+currentId))}
+    function updateHeroParallax(){const hero=document.querySelector('.hero');if(!hero)return;const rect=hero.getBoundingClientRect();const shift=Math.max(-34,Math.min(34,rect.top*-0.08));hero.style.setProperty('--rider-shift',shift+'px')}
+    window.addEventListener('scroll',()=>{updateHeaderState();updateActiveNav();updateHeroParallax()},{passive:true});updateHeaderState();updateActiveNav();updateHeroParallax();
+    const heroSeat=document.getElementById('heroSeat');const heroSeats=['imagesno-bg/OGSC03-LR-BEWHWH.png','imagesno-bg/OGSC03-LR-BLOEOE.png','imagesno-bg/OGSC03-LR-BLWHWH.png','imagesno-bg/OGSC03-LR-DBWHWH.png','imagesno-bg/OGSC03-LR-RDWHWH.png'];let heroIndex=0;setInterval(()=>{if(!heroSeat)return;heroSeat.classList.add('fade-out');setTimeout(()=>{heroIndex=(heroIndex+1)%heroSeats.length;heroSeat.src=heroSeats[heroIndex];heroSeat.classList.remove('fade-out')},350)},3600);
+    function runSelfTests(){console.assert(document.querySelectorAll('#mainNav a[href=""]').length===0,'В меню не должно быть пустых ссылок');console.assert(navLinks.length===4,'В меню должно быть 4 рабочие ссылки');console.assert(observedSections.length===4,'Для каждой ссылки меню должна существовать секция');console.assert(products.length===19,'В каталоге должно быть 19 товаров');console.assert([...document.querySelectorAll('a[href^="tel:"]')].every(a=>a.getAttribute('href')==='tel:+77750182889'),'Все телефонные ссылки должны вести на +77750182889');console.assert(document.querySelectorAll('a[]').length===0,'Не должно быть битого селектора a[]')}
     runSelfTests();
-
-// смена цвета сиденья в hero каждые 3–4 сек
-const heroSeat=document.getElementById('heroSeat');
-const heroSeats=[
-  'imagesno-bg/OGSC03-LR-BEWHWH.png',
-  'imagesno-bg/OGSC03-LR-BLOEOE.png',
-  'imagesno-bg/OGSC03-LR-BLWHWH.png',
-  'imagesno-bg/OGSC03-LR-DBWHWH.png',
-  'imagesno-bg/OGSC03-LR-RDWHWH.png'
-];
-let heroIndex=0;
-setInterval(()=>{
-  if(!heroSeat) return;
-  heroSeat.classList.add('fade-out');
-  setTimeout(()=>{
-    heroIndex=(heroIndex+1)%heroSeats.length;
-    heroSeat.src=heroSeats[heroIndex];
-    heroSeat.classList.remove('fade-out');
-  },350);
-},3600);
   </script>
-
-
-  <!-- Buy Modal -->
-  <div class="modal" id="buyModal">
-    <div class="modal-box" style="grid-template-columns:1fr;max-width:420px;text-align:center;padding:28px;transform:scale(.92);animation:modalPop .35s ease forwards">
-      <button class="close" onclick="closeBuyModal()">×</button>
-      <div style="font-size:56px;margin-bottom:12px;filter:drop-shadow(0 10px 20px rgba(255,122,0,.35))">🛒</div>
-      <h3 style="margin:0 0 10px;font-size:22px">Оформление заказа</h3>
-      <p class="muted" style="margin-bottom:20px;line-height:1.5">Заказ оформляется через менеджера.<br>Подберём идеальный вариант и быстро оформим доставку.</p>
-      <a class="btn" href="tel:+77750182889">📞 Связаться</a>
-    </div>
-  </div>
-
-  <script>
-    function openBuyModal(){
-      document.getElementById('buyModal').classList.add('open');
-      document.body.style.overflow='hidden';
-    }
-    function closeBuyModal(){
-      document.getElementById('buyModal').classList.remove('open');
-      document.body.style.overflow='';
-    }
-    document.getElementById('buyModal').addEventListener('click',e=>{
-      if(e.target.id==='buyModal') closeBuyModal();
-    });
-  </script>
-
 </body>
 </html>
