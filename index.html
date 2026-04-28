@@ -114,7 +114,7 @@
           <p class="lead">Максимальное сцепление в любых условиях. Больше контроля, меньше усталости, быстрее результат.</p>
           <div class="hero-actions">
             <a class="btn" href="tel:+77750182889">📞 Позвонить сейчас</a>
-            <a class="btn dark" href="#products">Смотреть каталог</a>
+            <a class="btn dark" >Смотреть каталог</a>
           </div>
           <div class="trust">
             <span>Лучшее сцепление</span>
@@ -127,9 +127,9 @@
           <div class="seat-fan" aria-label="Популярное сиденье ONEGRIPPER">
             <img id="heroSeat" src="imagesno-bg/OGSC03-LR-BEWHWH.png" alt="ONEGRIPPER LIGHT RIB">
           </div>
-          <a href="#products" style="position:absolute;bottom:120px;left:50%;transform:translateX(-50%);z-index:6;text-decoration:none">
+          <a  style="position:absolute;bottom:120px;left:50%;transform:translateX(-50%);z-index:6;text-decoration:none">
   <div style="background:linear-gradient(135deg,var(--orange),var(--orange2));color:#111;font-weight:950;text-transform:uppercase;font-size:20px;letter-spacing:1px;padding:16px 32px;border-radius:999px;box-shadow:0 12px 40px rgba(255,122,0,.45);animation:ctaPulse 1.8s infinite">
-    🚀 ВЫБОР РАЙДЕРОВ
+    🚀 
   </div>
 </a>
         </div>
@@ -200,7 +200,7 @@
     const observedSections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
 
 // плавный скролл при клике на якорь "Выбор райдеров"
-document.querySelectorAll('a[href="#products"]').forEach(el=>{
+document.querySelectorAll('a[]').forEach(el=>{
   el.addEventListener('click',e=>{
     e.preventDefault();
     document.getElementById('products').scrollIntoView({behavior:'smooth'});
