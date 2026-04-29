@@ -37,27 +37,168 @@
     .hero-stack{min-height:640px;position:relative;display:flex;align-items:center;justify-content:center;animation:heroCardIn .8s ease .15s both}.seat-fan{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.seat-fan::after{content:"";position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:60%;height:18%;background:radial-gradient(ellipse at center,rgba(255,122,0,.45) 0%,rgba(255,122,0,.25) 40%,rgba(255,122,0,0) 70%);filter:blur(22px);z-index:1;pointer-events:none}.seat-fan img{position:relative;z-index:2;height:70vh;width:auto;object-fit:contain;filter:drop-shadow(0 40px 60px rgba(0,0,0,.8));animation:productFloat 3.5s ease-in-out infinite;transition:opacity .4s ease}.seat-fan img.fade-out{opacity:0}
     .price{color:var(--orange);font-size:28px;font-weight:950;margin:8px 0}.pill{display:inline-flex;width:max-content;padding:6px 10px;border-radius:999px;background:rgba(255,122,0,.12);color:var(--orange2);font-weight:950;font-size:12px;margin-bottom:10px}
     section{padding:64px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:26px}h2{font-size:clamp(30px,4vw,46px);line-height:1;margin:0 0 8px;letter-spacing:-1.4px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}.filter{border:1px solid var(--line);background:rgba(255,255,255,.055);color:#fff;padding:10px 14px;border-radius:999px;font-weight:950;cursor:pointer}.filter.active,.filter:hover{background:var(--orange);border-color:var(--orange);color:#111}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:0;box-shadow:0 16px 50px rgba(0,0,0,.22);overflow:hidden}.product-card{cursor:pointer;transition:.2s;display:flex;flex-direction:column;min-height:100%}.product-card:hover{transform:translateY(-4px);border-color:rgba(255,122,0,.55);background:rgba(255,255,255,.09)}.product-img{width:100%;height:300px;object-fit:contain;background:linear-gradient(135deg,#242424,#111);padding:6px}.product-card .pill,.product-card p.muted,.stock{display:none}.product-card h3{font-size:15px;margin:12px 14px 4px}.product-card .price{font-size:20px;margin:0 14px 14px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}.product-actions .btn{font-size:13px;padding:10px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:0;box-shadow:0 16px 50px rgba(0,0,0,.22);overflow:hidden}.product-card{cursor:pointer;transition:.2s;display:flex;flex-direction:column;min-height:100%}.product-card:hover{transform:translateY(-4px);border-color:rgba(255,122,0,.55);background:rgba(255,255,255,.09)}.product-img{width:100%;height:300px;object-fit:contain;background:#fff;padding:10px}.product-card .pill,.product-card p.muted,.stock{display:none}.product-card h3{font-size:15px;margin:12px 14px 4px}.product-card .price{font-size:20px;margin:0 14px 14px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}.product-actions .btn{font-size:13px;padding:10px}
+    .bikes-grid{grid-template-columns:repeat(4,1fr)}
+    .brand-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:26px}
+    .brand-nav a{display:block;text-align:center;padding:18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line);font-weight:900;text-transform:uppercase;letter-spacing:.5px;transition:.25s}
+    .brand-nav a:hover{transform:translateY(-4px);border-color:var(--orange);color:var(--orange);box-shadow:0 12px 40px rgba(255,122,0,.18)}
+    .bike-card{padding:0 0 16px;position:relative;opacity:0;transform:translateY(28px) scale(.96);transition:opacity .65s ease,transform .65s ease,border-color .2s ease,box-shadow .2s ease}
+    .bike-card.show{opacity:1;transform:translateY(0) scale(1)}
+    .bike-card:hover{transform:translateY(-6px) scale(1.015);border-color:rgba(255,122,0,.5);box-shadow:0 22px 70px rgba(255,122,0,.16)}
+    .bike-card:nth-child(2){transition-delay:.08s}.bike-card:nth-child(3){transition-delay:.16s}.bike-card:nth-child(4){transition-delay:.24s}
+    .bike-img{width:100%;height:220px;object-fit:contain;background:#fff;display:block;filter:saturate(1.08) contrast(1.04);transition:transform .45s ease,filter .45s ease}
+    .bike-card:hover .bike-img{transform:scale(1.06);filter:saturate(1.2) contrast(1.08)}
+    .bike-card:before{content:'в наличии/под заказ';position:absolute;top:12px;left:12px;z-index:2;background:rgba(0,0,0,.68);border:1px solid rgba(255,122,0,.45);color:var(--orange2);font-size:11px;font-weight:950;text-transform:uppercase;padding:7px 9px;border-radius:999px;backdrop-filter:blur(8px)}
+    .bike-card h3{margin:14px 14px 6px}.bike-card p{margin:0 14px 10px}.bike-card .price{margin:0 14px 14px;font-size:22px}.bike-card .btn{margin:0 14px}
     .series,.benefits,.delivery{grid-template-columns:repeat(3,1fr)}.icon{font-size:30px;margin:18px 18px 10px}.series .card h3,.benefits .card h3,.delivery .card h3{margin:0 18px 8px}.series .card p,.benefits .card p,.delivery .card p{margin:0 18px 18px}.call-block{background:linear-gradient(135deg,#fff,#eff1f6);color:#111;border-radius:32px;padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center;box-shadow:var(--shadow)}.call-block .muted{color:#515866}
     footer{border-top:1px solid var(--line);padding:30px 0 92px;color:var(--muted)}.float-call{position:fixed;right:18px;bottom:18px;z-index:30;animation:pulse 1.8s infinite}
     .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:100;align-items:center;justify-content:center;padding:18px;animation:fadeIn .25s ease}.modal.open{display:flex}.modal-box{width:min(960px,100%);max-height:92vh;overflow:auto;background:#111620;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;padding:22px}.close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font-size:22px;cursor:pointer;z-index:2}.modal-img{width:100%;min-height:360px;object-fit:contain;background:#fff;border-radius:22px;border:1px solid var(--line)}.modal-info{padding:10px 6px}.modal-info h3{font-size:30px;margin:8px 0 10px}.modal-list{color:var(--muted);line-height:1.7;padding-left:18px}.modal-nav{display:flex;gap:10px;margin-top:16px}
     @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}@keyframes heroCardIn{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes productFloat{0%,100%{transform:translate(-30px,0)}50%{transform:translate(-30px,-10px)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes modalPop{0%{transform:scale(.85) translateY(20px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
     @media(max-width:1100px){nav{gap:12px;font-size:14px}.phone-text small{display:none}.logo{font-size:24px}.header-phone{gap:6px}}
-    @media(max-width:900px){.burger{display:flex}nav{display:none;position:absolute;left:16px;right:16px;top:76px;background:rgba(0,0,0,.96);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start;gap:6px;z-index:50}nav.open{display:flex}nav a{width:100%;padding:14px;border-radius:12px}nav a.active:after{display:none}nav a.active{background:rgba(255,122,0,.14)}.header-phone{margin-left:auto}.hero-grid,.call-block,.modal-box{grid-template-columns:1fr}.grid,.series,.benefits,.delivery{grid-template-columns:1fr 1fr}.hero-stack{min-height:470px}.seat-fan img{height:58vh}.product-img{height:280px}.trust{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.grid,.series,.benefits,.delivery{grid-template-columns:1fr}.hero{padding-top:46px;min-height:auto}.hero-stack{min-height:390px}.seat-fan img{height:42vh}.product-img{height:300px}.header-phone{display:none}header .btn{display:none}.trust{grid-template-columns:1fr;gap:14px}.product-actions{grid-template-columns:1fr}.modal-img{min-height:240px}.call-block{padding:24px}.logo{font-size:22px}.logo small{font-size:9px}}
+    @media(max-width:900px){.burger{display:flex}nav{display:none;position:absolute;left:16px;right:16px;top:76px;background:rgba(0,0,0,.96);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start;gap:6px;z-index:50}nav.open{display:flex}nav a{width:100%;padding:14px;border-radius:12px}nav a.active:after{display:none}nav a.active{background:rgba(255,122,0,.14)}.header-phone{margin-left:auto}.hero-grid,.call-block,.modal-box{grid-template-columns:1fr}.grid,.series,.benefits,.delivery,.bikes-grid{grid-template-columns:1fr 1fr}.hero-stack{min-height:470px}.seat-fan img{height:58vh}.product-img{height:280px}.trust{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.grid,.series,.benefits,.delivery,.bikes-grid{grid-template-columns:1fr}.hero{padding-top:46px;min-height:auto}.hero-stack{min-height:390px}.seat-fan img{height:42vh}.product-img{height:300px}.header-phone{display:none}header .btn{display:none}.trust{grid-template-columns:1fr;gap:14px}.product-actions{grid-template-columns:1fr}.modal-img{min-height:240px}.call-block{padding:24px}.logo{font-size:22px}.logo small{font-size:9px}}
   </style>
 </head>
 <body>
-  <header><div class="container"><a class="logo" href="#">ONE<span>GRIPPER</span><small>чехлы сидений для эндуро</small></a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button><nav id="mainNav"><a href="#products">Каталог</a><a href="#series">Серии</a><a href="#benefits">Плюсы</a><a href="#delivery">Доставка</a></nav><div class="header-phone"><div class="phone-icon">☎</div><div class="phone-text"><strong>+7 775 018 2889</strong><small>ежедневно с 9:00 до 21:00</small></div></div><a class="btn" href="tel:+77750182889">Позвонить</a></div></header>
+  <header><div class="container"><a class="logo" href="#">ONE<span>GRIPPER</span><small>чехлы сидений для эндуро</small></a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button><nav id="mainNav"><a href="#products">Каталог</a><a href="#bikes">Мотоциклы</a><a href="#series">Серии</a><a href="#benefits">Плюсы</a><a href="#delivery">Доставка</a></nav><div class="header-phone"><div class="phone-icon">☎</div><div class="phone-text"><strong>+7 775 018 2889</strong><small>ежедневно с 9:00 до 21:00</small></div></div><a class="btn" href="tel:+77750182889">Позвонить</a></div></header>
   <main>
     <section class="hero"><div class="container hero-grid"><div><div class="badge">Premium качество</div><h1>Сиденья ONEGRIPPER:<br><span>зацеп, контроль,<br>меньше усталости</span></h1><p class="lead">Максимальное сцепление в любых условиях. Больше контроля, меньше усталости, быстрее результат.</p><div class="hero-actions"><a class="btn" href="tel:+77750182889">📞 Позвонить сейчас</a><a class="btn dark" href="#products">Смотреть каталог</a></div><div class="trust"><span>Лучшее сцепление</span><span>Повышенная прочность</span><span>100% водонепроницаемый</span><span>Экономия энергии</span></div></div><div class="hero-stack"><div class="seat-fan" aria-label="Популярное сиденье ONEGRIPPER"><img id="heroSeat" src="imagesno-bg/OGSC03-LR-BEWHWH.png" alt="ONEGRIPPER LIGHT RIB"></div></div></div></section>
     <section id="products"><div class="container"><div class="section-head"><div><h2>Каталог <span>сидений</span></h2><p class="muted">Нажмите на карточку, чтобы открыть подробности товара поверх сайта.</p></div></div><div class="filters"><button class="filter active" data-filter="all">Все</button><button class="filter" data-filter="light">LIGHT RIB</button><button class="filter" data-filter="original">ORIGINAL V2</button><button class="filter" data-filter="hex">HEX XXL</button><button class="filter" data-filter="bracket">Кронштейны</button></div><div class="grid" id="productsGrid"></div></div></section>
+    <section id="bikes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Мотоциклы <span>в наличии</span></h2>
+            <p class="muted">Помимо сидений, у нас можно узнать наличие и цены на KTM, Husqvarna, GASGAS и Stark VARG.</p>
+          </div>
+        </div>
+
+        <div class="brand-nav">
+          <a href="#ktm">KTM →</a>
+          <a href="#husqvarna">Husqvarna →</a>
+          <a href="#gasgas">GASGAS →</a>
+          <a href="#stark">STARK VARG →</a>
+        </div>
+
+        <div id="ktm" class="brand-block">
+          <div class="brand-title"><span>KTM</span><small>эндуро / hard enduro / supermoto</small></div>
+          <div class="grid bikes-grid">
+            <article class="card bike-card">
+              <img class="bike-img" src="images/ktm-exc450.jpg" alt="KTM EXC-F 450 Six Days">
+              <h3>KTM EXC-F 450 Six Days 2025</h3>
+              <p class="muted">Лёгкий эндуро с мощным 450cc двигателем и продвинутой подвеской WP.</p>
+              <div class="price">≈ 6 500 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>449.9 см³ • 4-тактный</li><li>6-ступенчатая КПП</li><li>Вес: 107.7 кг</li><li>Подвеска WP XPLOR</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+            <article class="card bike-card">
+              <img class="bike-img" src="images/ktm-exc300.jpg" alt="KTM EXC 300 HardEnduro">
+              <h3>KTM EXC 300 HardEnduro 2025</h3>
+              <p class="muted">Экстремальный эндуро для жёстких трасс и Hard Enduro соревнований.</p>
+              <div class="price">≈ 6 700 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>293 см³ • 2-тактный</li><li>6-ступенчатая КПП</li><li>Вес: 106 кг</li><li>Подвеска WP XACT + PDS</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+            <article class="card bike-card">
+              <img class="bike-img" src="images/ktm-smc690.jpg" alt="KTM 690 SMC R">
+              <h3>KTM 690 SMC R 2026</h3>
+              <p class="muted">Король супермото: мощность, манёвренность и полный контроль на асфальте.</p>
+              <div class="price">≈ 8 700 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>693 см³ • 4-тактный</li><li>79 л.с. • 73 Нм</li><li>Вес: 153 кг</li><li>Подвеска WP APEX</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+          </div>
+        </div>
+
+        <div id="husqvarna" class="brand-block">
+          <div class="brand-title"><span>Husqvarna</span><small>легкость / контроль / премиальная эндуро-линейка</small></div>
+          <div class="grid bikes-grid">
+            <article class="card bike-card">
+              <img class="bike-img" src="images/husqvarna-te300.jpg" alt="Husqvarna TE 300">
+              <h3>Husqvarna TE 300 2026</h3>
+              <p class="muted">Легендарный двухтактный эндуро с плавной тягой и отличным балансом.</p>
+              <div class="price">≈ 7 200 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>293 см³ • 2-тактный</li><li>Инжектор EFI</li><li>Вес: ~106 кг</li><li>Подвеска WP XPLOR</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+            <article class="card bike-card">
+              <img class="bike-img" src="images/husqvarna-fe501.jpg" alt="Husqvarna FE 501">
+              <h3>Husqvarna FE 501 2026</h3>
+              <p class="muted">Флагманский 4-тактный эндуро с мощным двигателем и топовой управляемостью.</p>
+              <div class="price">≈ 6 100 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>510 см³ • 4-тактный</li><li>6-ступенчатая КПП</li><li>Вес: ~110 кг</li><li>Подвеска WP XACT</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+            <article class="card bike-card">
+              <img class="bike-img" src="images/husqvarna-te250.jpg" alt="Husqvarna TE 250">
+              <h3>Husqvarna TE 250 2025</h3>
+              <p class="muted">Лёгкий двухтактный эндуро с современным впрыском и отличной управляемостью.</p>
+              <div class="price">≈ 5 300 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>249 см³ • 2-тактный</li><li>EFI (впрыск топлива)</li><li>Вес: ~107 кг</li><li>Подвеска WP</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+          </div>
+        </div>
+
+        <div id="gasgas" class="brand-block">
+          <div class="brand-title"><span>GASGAS</span><small>яркий характер / 2T и 4T эндуро</small></div>
+          <div class="grid bikes-grid">
+            <article class="card bike-card">
+              <img class="bike-img" src="images/gasgas-ecf450.jpg" alt="GASGAS EC-F 450">
+              <h3>GASGAS EC-F 450 2026</h3>
+              <p class="muted">Мощный 4-тактный эндуро с отличной тягой и стабильностью на сложной местности.</p>
+              <div class="price">≈ 5 900 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>450 см³ • 4-тактный</li><li>≈ 52 л.с.</li><li>Вес: ~110 кг</li><li>Подвеска WP XPLOR</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+            <article class="card bike-card">
+              <img class="bike-img" src="images/gasgas-ec300gp.jpg" alt="GASGAS EC 300 GP">
+              <h3>GASGAS EC 300 GP 2026</h3>
+              <p class="muted">2-тактный эндуро с гоночным характером и уникальным GP-дизайном.</p>
+              <div class="price">≈ 6 100 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>293 см³ • 2-тактный</li><li>EFI система Vitesco</li><li>Вес: ~108 кг</li><li>Подвеска WP XPLOR</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+          </div>
+        </div>
+
+        <div id="stark" class="brand-block">
+          <div class="brand-title"><span>Stark VARG</span><small>электро / 60–80 hp / эндуро и супермото</small></div>
+          <div class="grid bikes-grid">
+            <article class="card bike-card">
+              <img class="bike-img" src="images/stark-varg.jpg" alt="Stark VARG SM">
+              <h3>Stark Varg SM ALPHA 80hp 2026</h3>
+              <p class="muted">Электро супермото нового поколения: тишина, мгновенная тяга и 80 л.с.</p>
+              <div class="price">≈ 7 500 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>Электро • 80 л.с.</li><li>Мгновенный крутящий момент</li><li>Без коробки передач</li><li>Супермото конфигурация</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+            <article class="card bike-card">
+              <img class="bike-img" src="images/stark-varg-ex.jpg" alt="Stark VARG EX">
+              <h3>Stark Varg EX ALPHA 80hp 2025</h3>
+              <p class="muted">Электро эндуро: мощность 80 л.с., ноль шума и максимум контроля на бездорожье.</p>
+              <div class="price">≈ 6 800 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>Электро • 80 л.с.</li><li>Мгновенный отклик газа</li><li>Без КПП</li><li>Enduro конфигурация</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+            <article class="card bike-card">
+              <img class="bike-img" src="images/stark-varg-red.jpg" alt="Stark VARG EX 60hp">
+              <h3>Stark Varg EX 60hp 2025 (RED)</h3>
+              <p class="muted">Электро эндуро с мягкой настройкой мощности: идеален для контроля и обучения.</p>
+              <div class="price">≈ 6 600 000 ₸</div>
+              <ul style="font-size:13px;color:#a8afbd;margin:0 14px 10px;padding-left:16px;line-height:1.5"><li>Электро • 60 л.с.</li><li>Плавная отдача мощности</li><li>Без коробки передач</li><li>Enduro конфигурация</li></ul>
+              <a class="btn small" href="tel:+77750182889">Узнать цену</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="series"><div class="container"><div class="section-head"><h2>Чем отличаются серии</h2></div><div class="grid series"><div class="card"><div class="icon">🟦</div><h3>LIGHT RIB</h3><p class="muted">Меньшие точки и комфортный зацеп уровня 1. Хороший вариант для длительной езды без чрезмерной агрессии.</p></div><div class="card"><div class="icon">⬛</div><h3>ORIGINAL V2</h3><p class="muted">Универсальная серия с увеличенным размером 930 × 415 мм. База для тренировок, покатушек и гонок.</p></div><div class="card"><div class="icon">⬢</div><h3>HEX XXL</h3><p class="muted">Самый большой размер 1020 × 480 мм. Отлично для KTM 690, Stark VARG и большинства мотоциклов.</p></div></div></div></section>
     <section id="benefits"><div class="container"><div class="section-head"><h2>Преимущества</h2></div><div class="grid benefits"><div class="card"><div class="icon">🧲</div><h3>Лучшее сцепление</h3><p class="muted">Баланс между избыточным и недостаточным сцеплением в любых условиях.</p></div><div class="card"><div class="icon">💪</div><h3>Меньше усталости</h3><p class="muted">Руки меньше забиваются, к концу заезда остаётся больше сил.</p></div><div class="card"><div class="icon">💧</div><h3>Водонепроницаемость</h3><p class="muted">Чехол легко мыть, пена сиденья остаётся сухой дольше.</p></div><div class="card"><div class="icon">🛡️</div><h3>Повышенная прочность</h3><p class="muted">Служит в 2–3 раза дольше стандартных чехлов.</p></div><div class="card"><div class="icon">🎨</div><h3>Много цветов</h3><p class="muted">Можно подобрать под KTM, Husqvarna, GASGAS или свой стиль.</p></div><div class="card"><div class="icon">📞</div><h3>Быстрый заказ</h3><p class="muted">Нажал, позвонил, уточнил наличие. Без сложной формы.</p></div></div></div></section>
     <section><div class="container"><div class="call-block"><div><h2>Хотите заказать сиденье?</h2><p class="muted">Позвоните, уточним наличие, цвет и доставку. Без формы, без лишней переписки.</p></div><a class="btn" href="tel:+77750182889">📞 Позвонить +7 775 018 2889</a></div></div></section>
     <section id="delivery"><div class="container"><div class="section-head"><h2>Доставка и оплата</h2></div><div class="grid delivery"><div class="card"><div class="icon">🇰🇿</div><h3>Казахстан</h3><p class="muted">Доставка транспортными службами. Условия уточняются по телефону.</p></div><div class="card"><div class="icon">📦</div><h3>Отправка</h3><p class="muted">Уточним наличие, цвет и удобный способ доставки перед заказом.</p></div><div class="card"><div class="icon">💳</div><h3>Оплата</h3><p class="muted">Оплата по договорённости: перевод, предоплата или другой удобный вариант.</p></div></div></div></section>
   </main>
-  <footer id="contacts"><div class="container"><strong>Контакты:</strong> <a href="tel:+77750182889">+7 775 018 2889</a><br>БазаR Enduro • Сиденья ONEGRIPPER • Доставка по Казахстану</div></footer><a class="btn float-call" href="tel:+77750182889">📞 Позвонить</a>
+  <footer id="contacts"><div class="container"><strong>Контакты:</strong> <a href="tel:+77750182889">+7 775 018 2889</a><br>📍 ул. Николая Станкевича, 2Е, Алматы<br>БазаR Enduro • Сиденья ONEGRIPPER • Доставка по Казахстану</div></footer><a class="btn float-call" href="tel:+77750182889">📞 Позвонить</a>
   <div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><img class="modal-img" id="modalImg" alt=""><div class="modal-info"><div class="pill" id="modalSeries"></div><h3 id="modalTitle"></h3><div id="modalStock" class="stock"></div><div class="price" id="modalPrice"></div><p class="muted" id="modalDesc"></p><ul class="modal-list" id="modalList"></ul><div class="modal-nav"><button class="btn dark" onclick="changeProduct(-1)">← Предыдущий</button><button class="btn dark" onclick="changeProduct(1)">Следующий →</button></div><div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px"><a class="btn" href="tel:+77750182889">📞 Позвонить</a><button class="btn dark" onclick="closeModal()">Закрыть</button></div></div></div></div>
   <div class="modal" id="buyModal"><div class="modal-box" style="grid-template-columns:1fr;max-width:420px;text-align:center;padding:28px;animation:modalPop .35s ease forwards"><button class="close" onclick="closeBuyModal()">×</button><div style="font-size:56px;margin-bottom:12px;filter:drop-shadow(0 10px 20px rgba(255,122,0,.35))">🛒</div><h3 style="margin:0 0 10px;font-size:22px">Оформление заказа</h3><p class="muted" style="margin-bottom:20px;line-height:1.5">Заказ оформляется через менеджера.<br>Подберём идеальный вариант и быстро оформим доставку.</p><a class="btn" href="tel:+77750182889">📞 Связаться</a></div></div>
   <script>
@@ -107,7 +248,14 @@
     function updateHeroParallax(){const hero=document.querySelector('.hero');if(!hero)return;const rect=hero.getBoundingClientRect();const shift=Math.max(-34,Math.min(34,rect.top*-0.08));hero.style.setProperty('--rider-shift',shift+'px')}
     window.addEventListener('scroll',()=>{updateHeaderState();updateActiveNav();updateHeroParallax()},{passive:true});updateHeaderState();updateActiveNav();updateHeroParallax();
     const heroSeat=document.getElementById('heroSeat');const heroSeats=['imagesno-bg/OGSC03-LR-BEWHWH.png','imagesno-bg/OGSC03-LR-BLOEOE.png','imagesno-bg/OGSC03-LR-BLWHWH.png','imagesno-bg/OGSC03-LR-DBWHWH.png','imagesno-bg/OGSC03-LR-RDWHWH.png'];let heroIndex=0;setInterval(()=>{if(!heroSeat)return;heroSeat.classList.add('fade-out');setTimeout(()=>{heroIndex=(heroIndex+1)%heroSeats.length;heroSeat.src=heroSeats[heroIndex];heroSeat.classList.remove('fade-out')},350)},3600);
-    function runSelfTests(){console.assert(document.querySelectorAll('#mainNav a[href=""]').length===0,'В меню не должно быть пустых ссылок');console.assert(navLinks.length===4,'В меню должно быть 4 рабочие ссылки');console.assert(observedSections.length===4,'Для каждой ссылки меню должна существовать секция');console.assert(products.length===19,'В каталоге должно быть 19 товаров');console.assert([...document.querySelectorAll('a[href^="tel:"]')].every(a=>a.getAttribute('href')==='tel:+77750182889'),'Все телефонные ссылки должны вести на +77750182889');console.assert(document.querySelectorAll('a[]').length===0,'Не должно быть битого селектора a[]')}
+    function runSelfTests(){console.assert(document.querySelectorAll('#mainNav a[href=""]').length===0,'В меню не должно быть пустых ссылок');console.assert(navLinks.length===5,'В меню должно быть 5 рабочих ссылок');console.assert(observedSections.length===5,'Для каждой ссылки меню должна существовать секция');console.assert(products.length===19,'В каталоге должно быть 19 товаров');console.assert([...document.querySelectorAll('a[href^="tel:"]')].every(a=>a.getAttribute('href')==='tel:+77750182889'),'Все телефонные ссылки должны вести на +77750182889');console.assert(!document.documentElement.innerHTML.includes('a[]'),'В коде не должно быть битого селектора a[]')}
+    const bikeCards=document.querySelectorAll('.bike-card');
+    if('IntersectionObserver' in window){
+      const bikeObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');bikeObserver.unobserve(entry.target)}});
+      },{threshold:.18});
+      bikeCards.forEach(card=>bikeObserver.observe(card));
+    }else{bikeCards.forEach(card=>card.classList.add('show'))}
     runSelfTests();
   </script>
 </body>
