@@ -21,7 +21,9 @@
     header.scrolled{background:rgba(0,0,0,.96);box-shadow:0 16px 44px rgba(0,0,0,.42)}
     @keyframes headerDrop{to{transform:translateY(0);opacity:1}}
     header .container{padding:14px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative}
-    .logo{font-size:28px;font-weight:950;font-style:italic;letter-spacing:-1px;text-transform:uppercase;white-space:nowrap}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:50px;width:auto;display:block}
+    .logo-text{font-size:22px;font-weight:900;letter-spacing:-0.5px}
     .logo small{display:block;font-size:10px;font-style:normal;letter-spacing:.9px;color:#fff;margin-top:3px}.logo span{color:var(--orange)}
     nav{display:flex;gap:18px;color:#fff;font-size:16px;font-weight:900;text-transform:uppercase;flex:1;justify-content:center;white-space:nowrap}
     nav a{position:relative;padding:8px 0;transition:.2s ease}nav a:hover,nav a.active{color:var(--orange)}nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:99px;background:var(--orange)}
@@ -50,7 +52,9 @@
   </style>
 </head>
 <body>
-  <header><div class="container"><a class="logo" href="#">ONE<span>GRIPPER</span><small>чехлы сидений для эндуро</small></a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button><nav id="mainNav"><a href="#products">Каталог</a><a href="#bikes">Мотоциклы</a><a href="#series">Серии</a><a href="#benefits">Плюсы</a><a href="#delivery">Доставка</a></nav><div class="header-phone"><div class="phone-icon">☎</div><div class="phone-text"><strong>+7 775 018 2889</strong><small>ежедневно с 9:00 до 21:00</small></div></div><a class="btn" href="tel:+77750182889">Позвонить</a></div></header>
+  <header><div class="container"><a class="logo" href="#">
+      <img src="images/logo.jpg" alt="BAZA ENDURO logo">
+    </a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button><nav id="mainNav"><a href="#products">Каталог</a><a href="#bikes">Мотоциклы</a><a href="#series">Серии</a><a href="#benefits">Плюсы</a><a href="#delivery">Доставка</a></nav><div class="header-phone"><div class="phone-icon">☎</div><div class="phone-text"><strong>+7 775 018 2889</strong><small>ежедневно с 9:00 до 21:00</small></div></div><a class="btn" href="tel:+77750182889">Позвонить</a></div></header>
   <main>
     <section class="hero"><div class="container hero-grid"><div><div class="badge">Premium качество</div><h1>Сиденья ONEGRIPPER:<br><span>зацеп, контроль,<br>меньше усталости</span></h1><p class="lead">Максимальное сцепление в любых условиях. Больше контроля, меньше усталости, быстрее результат.</p><div class="hero-actions"><a class="btn" href="tel:+77750182889">📞 Позвонить сейчас</a><a class="btn dark" href="#products">Смотреть каталог</a></div><div class="trust"><span>Лучшее сцепление</span><span>Повышенная прочность</span><span>100% водонепроницаемый</span><span>Экономия энергии</span></div></div><div class="hero-stack"><div class="seat-fan" aria-label="Популярное сиденье ONEGRIPPER"><img id="heroSeat" src="imagesno-bg/OGSC03-LR-BEWHWH.png" alt="ONEGRIPPER LIGHT RIB"></div></div></div></section>
     <section id="products"><div class="container"><div class="section-head"><div><h2>Каталог <span>сидений</span></h2><p class="muted">Нажмите на карточку, чтобы открыть подробности товара поверх сайта.</p></div></div><div class="filters"><button class="filter active" data-filter="all">Все</button><button class="filter" data-filter="light">LIGHT RIB</button><button class="filter" data-filter="original">ORIGINAL V2</button><button class="filter" data-filter="hex">HEX XXL</button><button class="filter" data-filter="bracket">Кронштейны</button></div><div class="grid" id="productsGrid"></div></div></section>
